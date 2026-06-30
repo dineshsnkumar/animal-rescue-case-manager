@@ -1,0 +1,44 @@
+# ==========================================
+# Google ADK Specifics
+# ==========================================
+# Credentials, environment keys (Gemini, Vertex AI, OpenRouter)
+.env
+.env.*
+credentials.json
+client_secret*.json
+
+# ADK Local agent runtime & cache tracking 
+.adk/
+adk_local_cache/
+*.log
+
+# ==========================================
+# Python (ADK Core Language)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# ==========================================
+# Node.js / Web UI (If using adk-web or adk-js)
+# ==========================================
+node_modules/
+/dist
+/build
+.npm
+package-lock.json
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db
+
+data/
