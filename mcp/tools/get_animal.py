@@ -1,21 +1,12 @@
 from database import get_db
+from services.animal_service import AnimalService
+from repositories.animal_repository import AnimalRepository
 
 
-async def get_animal(animal_id: str):
-
-    async with get_db() as db:
-        cursor = await db.execute(
-            """
-            SELECT *
-            FROM intakes
-            WHERE animal_id = ?
-            """,
-            (animal_id,),
-        )
-
-        row = await cursor.fetchone()
-
-        if row is None:
-            return {"found": False}
-
-        return dict(row)
+def register(mcp, animal_service: AnimalService):
+    @mcp.tool()
+    async def get_animal(animal_id: str):
+        """
+        Given animal_id; return infomation about the animal
+        """
+        return await animal_service.get_animal(animal_id)
